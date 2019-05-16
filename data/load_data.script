@@ -1,0 +1,17 @@
+_SYSTEM
+PASSWORD
+zn "HSLIB"
+do ##class(HS.HC.Util.Installer.FHIR).Install()
+FHIRNamespace
+N
+Y
+
+
+Y
+N
+N
+N
+Y
+zn "FHIRNamespace"
+do ##class(%SYSTEM.OBJ).Load("/home/project/Samples-Integration-FHIR/data/FHIRNamespaceProduction.xml","cdk")
+halt
