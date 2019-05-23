@@ -20,7 +20,7 @@
 echo "Installing data..."
 # get directory that we are running in to use as base directory
 basedir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-targetdir="/home/project/Samples-Integration-FHIR/data"
+targetdir="/home/project/shared/samples-integration-FHIR/data"
 containername="try-iris"
 echo "copy from "$basedir"/. to "$containername":"$targetdir"/"
 

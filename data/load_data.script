@@ -13,5 +13,5 @@ N
 N
 Y
 zn "FHIRNamespace"
-do ##class(%SYSTEM.OBJ).Load("/home/project/Samples-Integration-FHIR/data/FHIRNamespaceProduction.xml","cdk")
+do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/data/FHIRNamespaceProduction.xml","cdk")
 halt

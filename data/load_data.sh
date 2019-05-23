@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 #
-cat /home/project/Samples-Integration-FHIR/data/load_data.script | sed "s|PASSWORD|$passwd|g" | iris session iris 
+cat /home/project/shared/samples-integration-FHIR/data/load_data.script | sed "s|PASSWORD|$passwd|g" | iris session iris 
 
