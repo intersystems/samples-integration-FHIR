@@ -28,7 +28,7 @@ echo "copy from "$basedir"/. to "$containername":"$targetdir"/"
 # update environment file to add JAVA_HOME and CLASSPATH
 echo "Creating iris session to load data"
 # get passwd without echoing to terminal
-echo -n "Enter updated _SYSTEM PASSWORD: "; stty -echo; read passwd; stty echo; echo
+echo -n "Enter updated SuperUser PASSWORD: "; stty -echo; read passwd; stty echo; echo
 
 # sed -i -r "s|PASSWORD|$passwd|" $basedir/data/load_data.script
 echo "about to execute load-data.sh"
