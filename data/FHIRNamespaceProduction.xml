@@ -98,8 +98,8 @@
   <Item Name="From_ADT" Category="Demo" ClassName="EnsLib.HL7.Service.FileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>
     <Setting Target="Host" Name="TargetConfigNames">HL7toSDAProcess</Setting>
-    <Setting Target="Adapter" Name="FilePath">C:\Practice\in</Setting>
-    <Setting Target="Adapter" Name="ArchivePath">C:\Practice\inarchive</Setting>
+    <Setting Target="Adapter" Name="FilePath">/home/project/shared/samples-integration-FHIR/data/In</Setting>
+    <Setting Target="Adapter" Name="ArchivePath">/home/project/shared/samples-integration-FHIR/data/Out</Setting>
     <Setting Target="Adapter" Name="FileSpec">*</Setting>
   </Item>
   <Item Name="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" Category="Demo" ClassName="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
