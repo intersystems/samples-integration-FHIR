@@ -8,20 +8,16 @@ This sample is already loaded into IRIS for Health Learning Labs and the cloud m
 
 ## Try this sample
 1. Go to your REST client (such as (Chrome's Advanced REST client)[https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?hl=en-US]) and retrieve data for the first patient that is stored in the FHIR repository:  
-
-**HTTP Request**: GET http://YourIP:YourPort/csp/healthshare/fhirnamespace/fhir/stu3/Patient/1    (replacing YourIP and YourPort for IRIS for Health)
-
-**Headers**:
-
-    **Authorization**: SuperUser/SYS (or other credentials that work for your IRIS for Health instance)  
-    **Accept**: application/fhir+json
+ **HTTP Request**: GET http://YourIP:YourPort/csp/healthshare/fhirnamespace/fhir/stu3/Patient/1    (replacing YourIP and YourPort for IRIS for Health)  
+ **Headers**:   
+    *  **Authorization**: SuperUser/SYS (or other credentials that work for your IRIS for Health instance)  
+    *  **Accept**: application/fhir+json  
 	
 2. Store a new AllergyIntolerance resource.  
 **HTTP Request**: POST  http://YourIP:YourPort/csp/healthshare/fhirnamespace/fhir/stu3/AllergyIntolerance  
 **Headers**:  
-
-    **Authorization**: SuperUser/SYS (or other credentials that work for your IRIS for Health instance)  
-    **Content-type**: application/fhir+json;charset=utf-8
+    *  **Authorization**: SuperUser/SYS (or other credentials that work for your IRIS for Health instance)  
+    *  **Content-type**: application/fhir+json;charset=utf-8
 
 **Body**: Copy and paste the (example from the FHIR website)[http://hl7.org/fhir/stu3/allergyintolerance-medication.json.html].  
 If successful, you should have gotten a 201 Created message. 	
@@ -43,8 +39,8 @@ Problems? If doing this on your local machine, you may need to modify some confi
     >>Namespace : FHIRNamespace  
     >>Install DSTU2? (Y/N) N  
     >>Install STU3? (Y/N) Y  
-    >>STU3 CSP App <Press Enter to accept default>  
-    >>STU3 CSP Open ID Connect (OAuth 2.0) app <Press Enter to accept default>  
+    >>STU3 CSP App //Press Enter to accept default  
+    >>STU3 CSP Open ID Connect (OAuth 2.0) app //Press Enter to accept default  
     >>Install STU3 resource repository? (Y/N) Y  
     >>Install STU3 PIXm (Y/N) N  
     >>Install STU3 PDQm? (Y/N) N  
