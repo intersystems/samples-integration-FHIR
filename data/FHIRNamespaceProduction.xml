@@ -26,6 +26,7 @@
 </Property>
 
 <Method name="OnRequest">
+<Description>Transforms an HL7 message to SDA, an internal healthcare format for InterSystems IRIS for Health.</Description>
 <FormalSpec>pRequest:EnsLib.HL7.Message,*pResponse:Ens.Response</FormalSpec>
 <ReturnType>%Status</ReturnType>
 <Implementation><![CDATA[
