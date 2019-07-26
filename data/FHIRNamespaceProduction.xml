@@ -11,6 +11,11 @@
 
 
 <Class name="FHIRDemo.HL7TransformProcess">
+<Description>
+This is a custom business process that transforms an HL7 message to SDA format (an internal healthcare data format for InterSystems IRIS for Health).
+To use this class, add a business process with this class to the production and configure the target. The default target wil send the SDA to a component
+that converts the data to FHIR.
+</Description>
 <ClassType>persistent</ClassType>
 <Super>Ens.BusinessProcess</Super>
 <TimeChanged>65133,64970.65163</TimeChanged>
