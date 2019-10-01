@@ -1,4 +1,4 @@
-SuperUser
+_SYSTEM
 PASSWORD
 zn "HSLIB"
 do ##class(HS.HC.Util.Installer.FHIR).Install()
