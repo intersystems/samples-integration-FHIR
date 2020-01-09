@@ -2,7 +2,7 @@
 
 This code shows a sample FHIR integration solution for InterSystems IRIS for Health. FHIR data can be sent over REST and stored to a FHIR repository. HL7v2 data can also be consumed, converted to FHIR and stored in the FHIR repository. This data can then be retrieved through a REST client.
 
-The full QuickStart can be found at https://learning.intersystems.com/course/view.php?name=FHIR%20Integration
+The full QuickStart can be found at https://learning.intersystems.com/course/view.php?name=FHIR%20Integration%20QS
 
 This sample is already loaded into IRIS for Health Learning Labs and the cloud marketplace Evaluator edition. If using this sample with any other installation of InterSystems IRIS for Health, please see setup instructions at the bottom of this README.
 
