@@ -34,7 +34,7 @@ Problems? If doing this on your local machine, you may need to modify some confi
  
 ## Setup to run locally
 
-1. Clone or download this repository. This repository has a folder named data, which contains all files needed to load the sample integration solution as well as folders that contain the sample HL7v2 messages.
+1. Clone or download this repository. This repository has a folder named data, which contains all files needed to load the sample integration solution and the source code files as well as folders that contain the sample HL7v2 messages.
 
 2. Next, create a new FHIR namespace with the standard FHIR STU3 production. To do this, in Terminal type:
 ~~~    
