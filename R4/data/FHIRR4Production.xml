@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26" zv="IRIS for Windows (x86-64) 2020.2 (Build 208U)" ts="2020-07-01 21:00:35">
+<Class name="Demo.FHIR.HL7ToFHIRRequestBPL">
+<Description>
+</Description>
+<Super>Ens.BusinessProcessBPL</Super>
+<TimeChanged>65482,66456.975474</TimeChanged>
+<TimeCreated>65475,60521.231661</TimeCreated>
+
+<XData name="BPL">
+<Description>
+BPL Definition</Description>
+<XMLNamespace>http://www.intersystems.com/bpl</XMLNamespace>
+<Data><![CDATA[
+<process language='objectscript' request='EnsLib.HL7.Message' response='Ens.Response' height='2000' width='2000' >
+<context>
+<property name='SDAContext' type='Ens.StreamContainer' instantiate='0' />
+<property name='PatientMRN' type='%String' instantiate='0' >
+<parameters>
+<parameter name='MAXLEN'  value='50' />
+</parameters>
+</property>
+</context>
+<sequence xend='200' yend='550' >
+<code name='Obtain MRN from HL7' xpos='200' ypos='250' >
+<![CDATA[  if (request.DocTypeName="ADT_A01"){
+    set context.PatientMRN = request.GetValueAt("PID:PatientID.IDNumber")
+  }
+  if (request.DocTypeName="ORU_R01") {
+    $$$LOGINFO("Inside ORU")
+    set context.PatientMRN = request.GetValueAt("PIDgrpgrp(1).PIDgrp.PID:PatientID.IDNumber")
+  }]]]]><![CDATA[>
+</code>
+<code name='Map HL7 to SDA' xpos='200' ypos='350' >
+<![CDATA[  do ##class(HS.Gateway.HL7.HL7ToSDA3).GetSDA(request,.con)
+  set context.SDAContext = con
+  $$$LOGINFO("PatientMRN: "_context.PatientMRN)]]]]><![CDATA[>
+</code>
+<call name='Map SDA to FHIR' target='HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process' async='0' xpos='200' ypos='450' >
+<annotation><![CDATA[Call HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process]]]]><![CDATA[></annotation>
+<request type='HS.Message.XMLMessage' >
+<assign property="callrequest.ContentStream" value="context.SDAContext" action="set" />
+<assign property="callrequest.AdditionalInfo" value="context.PatientMRN" action="set" key="&quot;PatientResourceId&quot;" />
+</request>
+<response type='Ens.Response' />
+</call>
+</sequence>
+</process>
+]]></Data>
+</XData>
+
+<Storage name="Default">
+<Type>%Storage.Persistent</Type>
+</Storage>
+</Class>
+
+
+<Project name="EnsExportProduction_2020-07-01 21-00-08_528-4" LastModified="2020-07-01 21:00:35.788196">
+  <ProjectDescription>Studio Project generated from Production 'FHIRSERVERPKG.FoundationProduction' at 2020-07-02 01:00:08.528 UTC</ProjectDescription>
+  <Items>
+    <ProjectItem name="Demo.FHIR.HL7ToFHIRRequestBPL" type="CLS"></ProjectItem>
+    <ProjectItem name="FHIRSERVERPKG.FoundationProduction" type="CLS"></ProjectItem>
+    <ProjectItem name="EnsExportNotes.EnsExportProduction_2020-07-01 21-00-08_528-4.PTD" type="PTD"></ProjectItem>
+  </Items>
+</Project>
+
+
+<Class name="FHIRSERVERPKG.FoundationProduction">
+<ProcedureBlock>0</ProcedureBlock>
+<Super>Ens.Production</Super>
+<TimeChanged>65561,75595.393978</TimeChanged>
+<TimeCreated>65475,48544.411846</TimeCreated>
+
+<XData name="ProductionDefinition">
+<Data><![CDATA[
+<Production Name="FHIRSERVERPKG.FoundationProduction" LogGeneralTraceEvents="false">
+  <Description></Description>
+  <ActorPoolSize>1</ActorPoolSize>
+  <Item Name="HS.FHIRServer.Interop.Service" Category="Demo" ClassName="HS.FHIRServer.Interop.Service" PoolSize="0" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="AlertOnError">1</Setting>
+    <Setting Target="Host" Name="ArchiveIO">0</Setting>
+  </Item>
+  <Item Name="HS.FHIRServer.Interop.Operation" Category="Demo" ClassName="HS.FHIRServer.Interop.Operation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="TraceOperations">*FULL*</Setting>
+  </Item>
+  <Item Name="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" Category="Demo" ClassName="HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="TargetConfigName">HS.FHIRServer.Interop.Operation</Setting>
+    <Setting Target="Host" Name="FHIRMetadataSet">HL7v40 / Base HL7 Metadata for FHIR R4 (4.0.1)</Setting>
+    <Setting Target="Host" Name="FHIREndpoint">/csp/healthshare/fhirserver/fhir/r4</Setting>
+    <Setting Target="Host" Name="TraceOperations">*FULL*</Setting>
+    <Setting Target="Host" Name="FormatFHIROutput">1</Setting>
+    <Setting Target="Host" Name="FullTransactionResponse">0</Setting>
+  </Item>
+  <Item Name="HS.Util.Trace.Operations" Category="Demo" ClassName="HS.Util.Trace.Operations" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  </Item>
+  <Item Name="Demo.FHIR.HL7ToFHIRRequestBPL" Category="Demo" ClassName="Demo.FHIR.HL7ToFHIRRequestBPL" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="RuleLogging">a</Setting>
+  </Item>
+  <Item Name="EnsLib.HL7.Service.FileService" Category="" ClassName="EnsLib.HL7.Service.FileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>
+    <Setting Target="Adapter" Name="FilePath">home/project/shared/samples-integration-FHIR/R4/data/In</Setting>
+    <Setting Target="Adapter" Name="ArchivePath">home/project/shared/samples-integration-FHIR/R4/data/Archive</Setting>
+    <Setting Target="Adapter" Name="FileSpec">*</Setting>
+    <Setting Target="Host" Name="TargetConfigNames">Demo.FHIR.HL7ToFHIRRequestBPL</Setting>
+  </Item>
+</Production>
+]]></Data>
+</XData>
+</Class>
+
+
+<Document name="EnsExportNotes.EnsExportProduction_2020-07-01 21-00-08_528-4.PTD"><ProjectTextDocument name="EnsExportNotes.EnsExportProduction_2020-07-01 21-00-08_528-4" description="Export Notes for export EnsExportProduction_2020-07-01 21-00-08_528-4">
+<![CDATA[<Deployment>
+<Creation>
+<Machine>USE7480DDO.ISCINTERNAL.COM</Machine>
+<Instance>IRISHEALTH20202</Instance>
+<Namespace>FHIRSERVER</Namespace>
+<SourceProduction>FHIRSERVERPKG.FoundationProduction</SourceProduction>
+<Username>SuperUser</Username>
+<UTC>2020-07-02 01:00:35.786</UTC>
+</Creation>
+<Notes>
+</Notes>
+<Contents>
+<ExportProject>EnsExportProduction_2020-07-01 21-00-08_528-4</ExportProject>
+<Item num="1">Demo.FHIR.HL7ToFHIRRequestBPL.CLS</Item>
+<Item num="2">FHIRSERVERPKG.FoundationProduction.CLS</Item>
+</Contents>
+<ProductionClassInExport>FHIRSERVERPKG.FoundationProduction</ProductionClassInExport>
+</Deployment>
+
+]]></ProjectTextDocument>
+</Document></Export>

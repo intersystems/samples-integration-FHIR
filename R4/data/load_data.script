@@ -1,0 +1,15 @@
+_SYSTEM
+PASSWORD
+zn "HSLIB"
+do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRSERVER")
+zn "FHIRSERVER"
+1
+1
+2
+Y
+
+N
+Y
+zn "FHIRNamespace"
+do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/R4/data/FHIRServerDemo.xml","cdk")
+halt
