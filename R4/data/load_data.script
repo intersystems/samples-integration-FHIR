@@ -1,8 +1,8 @@
 _SYSTEM
 PASSWORD
-zn "HSLIB"
+set $namespace = "HSLIB"
 do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRSERVER")
-zn "FHIRSERVER"
+set $namespace = "FHIRSERVER"
 1
 1
 2
@@ -10,6 +10,5 @@ Y
 
 N
 Y
-zn "FHIRNamespace"
-do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/R4/data/FHIRServerDemo.xml","cdk")
+do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/R4/data/FHIRR4Production.xml","cdk")
 halt

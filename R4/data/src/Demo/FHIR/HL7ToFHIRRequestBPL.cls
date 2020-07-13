@@ -25,8 +25,8 @@ XData BPL [ XMLNamespace = "http://www.intersystems.com/bpl" ]
   }]]>
 </code>
 <code name='Map HL7 to SDA' xpos='200' ypos='350' >
-<![CDATA[  do ##class(HS.Gateway.HL7.HL7ToSDA3).GetSDA(request,.con)
-  set context.SDAContext = con
+<![CDATA[  do ##class(HS.Gateway.HL7.HL7ToSDA3).GetSDA(request,.SDAContext)
+  set context.SDAContext = SDAContext
   $$$LOGINFO("PatientMRN: "_context.PatientMRN)]]>
 </code>
 <call name='Map SDA to FHIR' target='HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process' async='0' xpos='200' ypos='450' >
@@ -40,4 +40,10 @@ XData BPL [ XMLNamespace = "http://www.intersystems.com/bpl" ]
 </sequence>
 </process>
 }
+
+Storage Default
+{
+<Type>%Storage.Persistent</Type>
+}
+
 }

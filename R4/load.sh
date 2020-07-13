@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 #
-# load red light data into InterSystems IRIS container
+# load FHIR data into InterSystems IRIS container
 echo "Installing data..."
 # get directory that we are running in to use as base directory
 basedir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
