@@ -1,6 +1,6 @@
 _SYSTEM
 PASSWORD
-zn "HSLIB"
+set $namespace = "HSLIB"
 do ##class(HS.HC.Util.Installer.FHIR).Install()
 FHIRNamespace
 N
@@ -12,7 +12,7 @@ N
 N
 N
 Y
-zn "FHIRNamespace"
+set $namespace = "FHIRNamespace"
 do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/data/FHIRNamespaceProduction.xml","cdk")
 set status = ##class(HS.FHIR.DTL.Util.API.ExecDefinition).SetCustomDTLPackage("HS.Local.FHIR.DTL")
 halt
