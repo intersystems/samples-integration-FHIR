@@ -1,5 +1,3 @@
-_SYSTEM
-PASSWORD
 set $namespace = "HSLIB"
 do ##class(HS.HC.Util.Installer.FHIR).Install()
 FHIRNamespace
