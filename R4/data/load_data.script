@@ -1,12 +1,5 @@
 set $namespace = "HSLIB"
 do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRSERVER")
 set $namespace = "FHIRSERVER"
-1
-1
-2
-Y
-
-N
-Y
 do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/R4/data/FHIRR4Production.xml","cdk")
 halt

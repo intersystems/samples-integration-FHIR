@@ -11,6 +11,6 @@ N
 N
 Y
 set $namespace = "FHIRNamespace"
-do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/data/FHIRNamespaceProduction.xml","cdk")
+do ##class(%SYSTEM.OBJ).Load("/home/project/shared/samples-integration-FHIR/STU3/data/FHIRNamespaceProduction.xml","cdk")
 set status = ##class(HS.FHIR.DTL.Util.API.ExecDefinition).SetCustomDTLPackage("HS.Local.FHIR.DTL")
 halt

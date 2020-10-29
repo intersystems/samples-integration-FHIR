@@ -29,10 +29,11 @@ XData ProductionDefinition
   </Item>
   <Item Name="EnsLib.HL7.Service.FileService" Category="" ClassName="EnsLib.HL7.Service.FileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="MessageSchemaCategory">2.3.1</Setting>
-    <Setting Target="Adapter" Name="FilePath">home/project/shared/samples-integration-FHIR/R4/In</Setting>
+    <Setting Target="Adapter" Name="FilePath">/home/project/shared/samples-integration-FHIR/R4/In</Setting>
     <Setting Target="Adapter" Name="FileSpec">*</Setting>
     <Setting Target="Host" Name="TargetConfigNames">Demo.FHIR.HL7ToFHIRRequestBPL</Setting>
   </Item>
 </Production>
 }
+
 }
