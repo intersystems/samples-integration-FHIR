@@ -6,10 +6,9 @@ Through the use of FHIR and InterSystems IRIS for Health, you can easily:
 
 * Expose discrete resources, improving performance.
 * Convert data between FHIR and many other healthcare data formats such as HL7 v2 or CDA.
-* Route, transform, and orchestrate data between multiple disparate applications.
+* Route, and orchestrate data between multiple disparate applications.
 * Store FHIR resources in a FHIR resource repository using InterSystems IRIS for Health as your FHIR application development environment.
 
 ## Try this sample
 
-1. FHIR STU3 Integration QuickStart: [https://learning.intersystems.com/course/view.php?name=FHIR%20Integration%20QS](https://learning.intersystems.com/course/view.php?name=FHIR%20Integration%20QS)
-2. FHIR R4 Integration QuickStart: [https://learning.intersystems.com/course/view.php?name=FHIRR4QS](https://learning.intersystems.com/course/view.php?name=FHIRR4QS)
+FHIR R4 Integration QuickStart: [https://learning.intersystems.com/course/view.php?name=FHIRR4IntegrationQS](https://learning.intersystems.com/course/view.php?name=FHIRR4QS)
