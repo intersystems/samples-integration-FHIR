@@ -11,4 +11,4 @@ Through the use of FHIR and InterSystems IRIS for Health, you can easily:
 
 ## Try this sample
 
-FHIR R4 Integration QuickStart: [https://learning.intersystems.com/course/view.php?name=FHIRR4IntegrationQS](https://learning.intersystems.com/course/view.php?name=FHIRR4QS)
+FHIR R4 Integration QuickStart: [https://learning.intersystems.com/course/view.php?name=FHIRR4IntegrationQS](https://learning.intersystems.com/course/view.php?name=FHIRR4IntegrationQS)
